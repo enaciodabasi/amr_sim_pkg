@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:macro name="omni_controller">
+        <gazebo>
+            <plugin name="omni_directional_movement_controller" filename="libgazebo_ros_planar_move.so">
+                <ros>
+                    <argument>odom:=odom/unfiltered</argument>
+                </ros>
+                <commandTopic>cmd_vel</commandTopic>
+                <odometryTopic>odom/unfiltered</odometryTopic>
+                <odometryFrame>odom</odometryFrame>
+                <odometry_rate>50.0</odometry_rate>
+                <robot_base_frame>base_footprint</robot_base_frame>
+                <publish_odom>true</publish_odom>
+                <publish_odom_tf>false</publish_odom_tf>
+            </plugin>
+        </gazebo>
+    </xacro:macro>
+</robot>
